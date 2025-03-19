@@ -1,0 +1,11 @@
+{
+    "name": "Block Goose",
+    "id": "goose",
+    "version": "1.0.0",
+    "description": "Install the Goose AI coding assistant",
+    "options": {
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
