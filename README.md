@@ -94,27 +94,6 @@ To build and test your feature in another project before publishing:
    ```
    This creates a tarball in the `./output` directory.
 
-2. In your test project, reference the local feature in your `devcontainer.json`:
-   ```jsonc
-   {
-       "name": "Test Project",
-       "features": {
-           "local/features/goose:1": {
-               "version": "latest"
-           }
-       },
-       "overrideFeatureInstallOrder": [
-           "local/features/goose"
-       ]
-   }
-   ```
-
-3. Set the `DEVCONTAINER_FEATURES_PATH` environment variable to point to your output directory when building the container:
-   ```bash
-   export DEVCONTAINER_FEATURES_PATH=/path/to/goose-devcontainer-feature/output
-   devcontainer up
-   ```
-
 This approach allows you to test your feature changes in real projects before publishing a new version.
 
 ## License
