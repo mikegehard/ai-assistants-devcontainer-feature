@@ -84,6 +84,39 @@ Contributions are welcome! Here's how you can contribute:
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
+### Building Locally for Testing in Other Projects
+
+To build and test your feature in another project before publishing:
+
+1. Create a tarball of your feature:
+   ```bash
+   devcontainer features package -o ./output .
+   ```
+   This creates a tarball in the `./output` directory.
+
+2. In your test project, reference the local feature in your `devcontainer.json`:
+   ```jsonc
+   {
+       "name": "Test Project",
+       "features": {
+           "local/features/goose:1": {
+               "version": "latest"
+           }
+       },
+       "overrideFeatureInstallOrder": [
+           "local/features/goose"
+       ]
+   }
+   ```
+
+3. Set the `DEVCONTAINER_FEATURES_PATH` environment variable to point to your output directory when building the container:
+   ```bash
+   export DEVCONTAINER_FEATURES_PATH=/path/to/goose-devcontainer-feature/output
+   devcontainer up
+   ```
+
+This approach allows you to test your feature changes in real projects before publishing a new version.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
