@@ -1,12 +1,19 @@
-name: "Release dev container features & Generate Documentation"
+name: "Release & Publish"
 on:
-  workflow_dispatch:
   push:
     tags:
       - 'v*'
 
 jobs:
+  # Run all tests defined in the test workflow before proceeding with deployment
+  test:
+    name: Run Tests
+    uses: ./.github/workflows/test.yaml
+
+  # Only deploy after tests have passed successfully
   deploy:
+    name: Deploy & Publish
+    needs: test
     if: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     permissions:
