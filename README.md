@@ -90,7 +90,7 @@ To build and test your feature in another project before publishing:
 
 1. Create a tarball of your feature:
    ```bash
-   devcontainer features package -o ./output .
+   devcontainer features package -f -o ./output ./src
    ```
    This creates a tarball in the `./output` directory.
 
