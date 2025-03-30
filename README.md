@@ -53,6 +53,25 @@ devcontainer features test
 
 This will build a test container with the feature installed and run the tests defined in `test/goose/test.sh`.
 
+### Publishing a New Release
+
+To publish a new version of this feature:
+
+1. Update the code as needed and test locally
+2. Update the version in `src/goose/devcontainer-feature.json`
+3. Commit your changes and push to the main branch
+4. Create and push a new version tag:
+   ```bash
+   git tag v1.0.0  # Replace with your version
+   git push origin v1.0.0
+   ```
+5. The GitHub Actions workflow will automatically:
+   - Run all tests on multiple base images
+   - Publish the feature to GitHub Container Registry if tests pass
+   - Generate updated documentation and create a PR
+
+After the release is published, users can install the feature using the reference in their devcontainer.json file.
+
 ## Contributing
 
 Contributions are welcome! Here's how you can contribute:
