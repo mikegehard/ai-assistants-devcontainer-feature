@@ -14,9 +14,24 @@ This repository provides a [dev container Feature](https://containers.dev/implem
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/mikegehard/goose-devcontainer-feature/goose:1": {}
-    }
+    },
+    "runArgs": ["--env-file",".env"]
 }
 ```
+
+### API Keys
+
+For Goose to function properly, you'll need to set up API keys. The recommended approach is to use `.env` files:
+
+1. Create a `.env` file in your project root or in the location specified by your Goose configuration
+2. Use the provided `example.env` file as a reference:
+   ```
+   ANTHROPIC_API_KEY=your_anthropic_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here
+   DEEPSEEK_API_KEY=your_deepseek_api_key_here
+   ```
+3. Copy `example.env` to `.env` and add your actual API keys
+4. Ensure your `.env` file is added to `.gitignore` to prevent accidentally committing sensitive information
 
 ## Available Options
 

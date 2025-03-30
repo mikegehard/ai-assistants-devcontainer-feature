@@ -1,6 +1,8 @@
 # Local packaging output
 /output/
 
+.env
+
 # OS specific files
 .DS_Store
 Thumbs.db
