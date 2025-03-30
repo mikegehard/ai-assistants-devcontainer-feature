@@ -3,10 +3,14 @@ set -e
 
 echo "Activating feature Goose"
 
+apt-get update -y
 if ! command -v curl > /dev/null; then
     echo "Installing curl..."
-    apt-get update
-    apt-get install -y curl 
+    apt-get install -y curl
+fi
+if ! command -v bzip2 > /dev/null; then
+    echo "Installing bzip2..."
+    apt-get install -y bzip2
 fi
 
 # Required by Goose
