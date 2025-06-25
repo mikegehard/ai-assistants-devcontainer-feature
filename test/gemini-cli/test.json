@@ -1,6 +1,6 @@
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "gemini": {}
+        "gemini-cli": {}
     }
 }
